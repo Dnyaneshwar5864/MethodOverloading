@@ -1,0 +1,84 @@
+package MethodOverloading;
+
+public class Amazon {
+	//email saved by user when account is created
+	String email="dn@gmail.com";
+	long contanct=8407959663l;
+	long password=12345;
+	//this method accept string and password from main class
+	void signIn(String emailId,long pass)
+	{
+		if(emailId.equalsIgnoreCase(email))
+		{
+			if(password==pass)
+			{
+				System.out.println("Login succussfully");
+			}
+			else
+			{
+				System.out.println("Wrong Password");
+			}
+			
+		}
+		else
+		{
+			System.out.println("invalid email");
+		}
+	}
+	
+	//this method accept contact no and password when user choose signIn using contanct number
+	void signIn(long contanctNum,long pass)
+	{
+		if(contanctNum==contanct)
+		{
+			if(password==pass)
+			{
+				System.out.println("Login succussfully");
+			}
+			else
+			{
+				System.out.println("Wrong Password");
+			}
+			
+		}
+		else
+		{
+			System.out.println("invalid contact");
+		}
+	}
+
+}
+/////operation program
+package MethodOverloading;
+import java.util.*;
+public class MainApp {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		Amazon a1=new Amazon();
+		System.out.println("Enter your sign method");
+		System.out.println("you can login using following option,Enter your choice \n 1.email \n 2.contanct number \n");
+		int choice=sc.nextInt();
+		if(choice==1)
+		{
+			System.out.println("enter your email");
+			String email=sc.next();
+			System.out.println("enter your password");
+			long pass=sc.nextLong();
+			 a1.signIn(email,pass);
+		}
+		else if(choice==2)
+		{
+			System.out.println("Enter your mobile no");
+			long contanct=sc.nextLong();
+			System.out.println("enter your password");
+			long pass=sc.nextLong();
+			a1.signIn(contanct,pass);
+		}
+		else
+		{
+			System.out.println("You Enter Invalid synatax");
+		}
+	}
+
+}
